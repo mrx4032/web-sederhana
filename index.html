@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TUGAS (UTS)</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<h1>TUGAS (UTS)</h1>
+
+<div class="container">
+    <header>
+        <div class="judul">
+            PEMROGRAMAN WEB DASAR<br>
+            <small>Topik <i>HTML </i></small>
+        </div>
+    </header>
+
+    <nav>
+        <table>
+            <thead>
+                <tr><th>MENU</th></tr>
+            </thead>
+            <tbody>
+                <tr><td onclick="loadContent('menu1.html')">Biodata Mahasiswa</td></tr>
+                <tr><td onclick="loadContent('menu2.html')">Hobi</td></tr>
+                <tr><td onclick="loadContent('menu3.html')">Makanan Favorit</td></tr>
+               
+            </tbody>
+        </table>
+    </nav>
+
+    <main id="content">
+        <div class="welcome">
+            <h2>Selamat Datang!</h2>
+            <p>Bagian ini akan menampilkan konten yang dipilih dari menu di samping. Klik menu untuk melihat biodata, hobi, atau informasi lainnya.</p>
+        </div>
+    </main>
+
+    <aside>
+        <div class="logo">
+            <img src="https://iili.io/fHuS5Rs.th.png" alt="Logo Itsnu Lampung" />
+        </div>
+        <div class="links">
+            <a href="https://wa.me/085280203106" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://www.Instagram.com/taufik_apri23" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.tiktok.com/@apricellservice" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+    </aside>
+
+    <footer>
+        Dikembangkan oleh : Taufik_Aprianto <br>©2025
+    </footer>
+</div>
+
+<script>
+    function loadContent(page) {
+        fetch(page)
+            .then(response => {
+                if (!response.ok) throw new Error('Halaman tidak ditemukan');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => {
+                document.getElementById('content').innerHTML = `<p style="color:red;">${error.message}</p>`;
+            });
+    }
+</script>
+
+</body>
+</html>
